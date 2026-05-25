@@ -1,4 +1,31 @@
-//https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/
+// https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/
+class Solution {
+    public int minimumDifference(int[] nums, int k) {
+       ArrayList<Integer> al=new ArrayList<>();
+       int n=nums.length;
+       int dif=Integer.MAX_VALUE;
+       Arrays.sort(nums);
+      
+       int l=0;
+       for(int r=0;r<n;r++){
+           al.add(nums[r]);
+           int curdif=0;
+           if(r-l==k){
+                al.remove(Integer.valueOf(nums[l]));
+               l++;
+           }
+           if(al.size()==k){
+               int max=Collections.max(al);
+               int min=Collections.min(al);
+               curdif=max-min;
+               dif=Math.min(curdif,dif);
+           }
+       }
+       
+       return dif;
+    }
+}
+------------------------------------------------------------------------------------------
 
 class Solution {
     public int minimumDifference(int[] nums, int k) {
@@ -14,42 +41,4 @@ class Solution {
        
        return dif;
     }
-}
-
-import java.util.*;
-
-class Main {
-    public static void main(String[] args) {
-
-        ArrayList<Integer> al = new ArrayList<>();
-
-        int[] arr = {9,4,1,7};
-        int sl = 2;
-        int n = arr.length;
-
-        int dif = Integer.MAX_VALUE;
-
-        Arrays.sort(arr);
-
-        int l = 0;
-
-        for(int r = 0; r < n; r++) {
-
-            al.add(arr[r]);
-
-            if(r - l + 1 > sl) {
-                al.remove(Integer.valueOf(arr[l]));
-                l++;
-            }
-
-            if(al.size() == sl) {
-                int max = Collections.max(al);
-                int min = Collections.min(al);
-
-                dif = Math.min(dif, max - min);
-            }
-        }
-
-        System.out.println(dif);
-    }
-}
+}    
