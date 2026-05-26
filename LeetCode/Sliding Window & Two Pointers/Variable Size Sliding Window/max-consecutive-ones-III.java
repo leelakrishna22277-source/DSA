@@ -1,0 +1,24 @@
+// https://leetcode.com/problems/max-consecutive-ones-iii/
+
+class Solution {
+    public int longestOnes(int[] nums, int k) {
+        int n=nums.length;
+        int l=0;
+        int count=0;
+        int ans=0;
+        for(int r=0;r<n;r++){
+            if(nums[r]==0){
+                count+=1;
+            }
+            while(count>k){
+                if(nums[l]==0){
+                    count-=1;
+                }
+                l++;
+            }
+            ans=Math.max(ans,r-l+1);
+        }
+        return ans;
+        
+    }
+}
