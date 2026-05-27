@@ -8,15 +8,19 @@ class Solution {
        int maxlen=0;
        int l=0;
         for(int r=0;r<n;r++){
-            
+            if(!hs.contains(s.charAt(r))){
+                
+                hs.add(s.charAt(r));
+            }
+            else{
                 
             while(hs.contains(s.charAt(r))){
                 hs.remove(s.charAt(l));
                 l++;
                 
             }
-           hs.add(s.charAt(r));
-
+            hs.add(s.charAt(r));
+            }
             maxlen=Math.max(maxlen,hs.size());
         }
     //     int n=s.length();
@@ -37,3 +41,5 @@ class Solution {
        return maxlen;
     }
 }
+
+
