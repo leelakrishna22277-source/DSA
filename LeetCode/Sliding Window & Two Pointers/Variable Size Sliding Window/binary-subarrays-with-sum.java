@@ -1,5 +1,24 @@
 // https://leetcode.com/problems/binary-subarrays-with-sum/
 
+// Problem Statement
+
+// Given a binary array nums and an integer goal, return the number of non-empty subarrays with sum equal to goal.
+
+// Important Concept
+
+// Since the array contains only 0 and 1:
+
+// sum of window = count of 1's in the window
+
+// So we can use sliding window.
+
+// Main Formula
+
+// exactly(goal)
+
+// atMost(goal) - atMost(goal - 1)
+
+
 class Solution {
     public int atmost(int[] nums,int goal){
         if(goal < 0){
