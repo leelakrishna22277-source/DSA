@@ -80,12 +80,12 @@ class Main {
             // Target is not present
             // Return insertion position
 
-            if(r < l) {
-                return l;
-            }
+            // if(r < l) {
+            //    return l;
+           //  }
         }
 
-        return -1;
+        return l;
     }
 
     public static void main(String[] args) {
