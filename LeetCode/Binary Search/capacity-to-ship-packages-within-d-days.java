@@ -6,25 +6,23 @@ class Solution {
     int sum = 0;
 
     for (int i = 0; i < weights.length; i++) {
-
-        if (weights[i] > capacity) {
-            return false;
-        }
-
-        sum += weights[i];
-
-        if (sum > capacity) {
-            days--;
-            sum = weights[i];
-        }
+      int val=weights[i];
+      if(val>capacity){
+        return false;
+      }
+       if(sum+val>capacity){
+        days-=1;
+        sum=0;
+       }
+       sum+=val;
     }
-
-    if(days>0){
-        return true;
-    }
-    return false;
+       if(days<=0){
+        return false;
+       }
+       
+     return true;
 }
-    public int shipWithinDays(int[] weights, int days) {
+public int shipWithinDays(int[] weights, int days) {
         
         int l=1;
        int r=(int)Math.pow(10,11);
