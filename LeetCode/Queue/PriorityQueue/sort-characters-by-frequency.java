@@ -10,10 +10,10 @@ class Solution {
             hm.put(ch, hm.getOrDefault(ch, 0) + 1);
         }
         PriorityQueue<Freq> pq=new PriorityQueue<>((a,b)->b.num-a.num);
-        for(Map.Entry<Character,Integer> entry : hm.entrySet()){
-            Freq f=new Freq(entry.getKey() ,entry.getValue());
-         pq.add(f);
-}
+       for(char ch:hm.keySet()){
+        Freq temp1=new Freq(ch,hm.get(ch));
+        pq.add(temp1);
+       }
           
           while(!pq.isEmpty()){
           Freq temp=pq.poll();
